@@ -1,0 +1,39 @@
+/*
+  Fixed video background layer for Thenura Suppliers.
+  Uses only the local construction background video.
+*/
+
+:root {
+  --bg-video-fallback: #050912;
+}
+
+body {
+  background: var(--dark-bg, var(--bg-video-fallback));
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+main > section:not(:first-child) {
+  position: relative;
+  z-index: 2;
+}
+
+.bg-stack {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--bg-video-fallback);
+}
+
+.bg-stack__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
